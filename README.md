@@ -1,4 +1,4 @@
-# Paradigms-Laboratory-03_Class-and-Object-Concepts
+# Paradigms Laboratory-03_Class_and_Object_Concepts
 The assignment is done in C++ and has been completed and verified on 3rd March 2022
 
 ## Question 1
