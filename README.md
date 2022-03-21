@@ -43,3 +43,10 @@ PrintStudentData(...) for this purpose.
   of another Stack using “=” operator.
 ## Question 3
 -------------
+Modify the Problem 2 to implement a generic GrowingStack to store any kind of data
+types such as int, short, float, double or struct using class
+template concept.
+## Question 4
+-------------
+Implement problem number 3 or 8 (based on whichever you have done earlier) from
+assignment number 2 using the concept of class.
