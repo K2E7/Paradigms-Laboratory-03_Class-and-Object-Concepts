@@ -69,5 +69,7 @@ int main()
 
     S[i].input("Sriparno Ganguly", 20, "Computer Science and Technology", 2024);
     for(int j=0; j<size; j++)
-        S[j].print();      
+        S[j].print();
+    
+    return 0;
 }
