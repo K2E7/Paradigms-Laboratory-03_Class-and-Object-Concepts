@@ -9,7 +9,7 @@ using namespace std;
 
 class Student{
     
-    protected:
+    private:
     
         string Name;
         int Age;
@@ -18,12 +18,12 @@ class Student{
 
     public:
 
-        Student(string, int, string, int);
-        Student();
+        void input(string, int, string, int);
+        void read();
         void print();
 };
 
-Student::Student(string name, int age, string department, int year){
+void Student::input(string name, int age, string department, int year){
 
     this->Name       = name;
     this->Age        = age;
@@ -31,7 +31,7 @@ Student::Student(string name, int age, string department, int year){
     this->Year       = year;
 }
 
-Student::Student(){
+void Student::read(){
 
     cin.clear();
     cout<<"Enter Name : ";
@@ -58,14 +58,16 @@ void Student::print(){
 int main()
 {
     Student S[MAX];
-    
+
     int size;
     cout<<"Enter the size of student array ?"<<endl;
     cin>> size;
+    
+    int i;
+    for(i=0; i<size-1; i++)
+        S[i].read();
 
-    for(int i=0; i<size; i++)
-        S[i]; 
-
+    S[i].input("Sriparno Ganguly", 20, "Computer Science and Technology", 2024);
     for(int j=0; j<size; j++)
         S[j].print();      
 }
