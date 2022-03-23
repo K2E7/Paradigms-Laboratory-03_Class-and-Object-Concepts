@@ -161,7 +161,6 @@ namespace GrowingStack{
 }
 
 using namespace GrowingStack;
-
 growing_stack alt_merge(growing_stack &x, growing_stack &y){
 
     growing_stack z;
