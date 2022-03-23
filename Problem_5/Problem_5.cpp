@@ -21,6 +21,8 @@ namespace GrowingStack{
             inline int  currentSize();
             inline void print_stack();
 
+            growing_stack operator+(const growing_stack& stack2);
+
 
         private:
             void inflate(){
@@ -66,6 +68,44 @@ namespace GrowingStack{
         this->upper_bound   = otherstack.upper_bound;
 
         stack_count++;
+    }
+
+    growing_stack::growing_stack operator+(const growing_stack& stack2){
+
+        growing_stack sum;
+
+        sum.current_size = this->current_size + stack2.current_size;
+
+        this->upper_bound > stack2.upper_bound ? sum.upper_bound = this->upper_bound 
+                                               : sum.upper_bound = stack2.upper_bound;
+
+        this->constant > stack2.constant ? sum.constant = this->constant
+                                         : sum.constant = stack2.constant;
+
+        this->max_size > stack2.max_size ? sum.max_size = this->max_size
+                                         : sum.max_size = stack2.max_size;
+
+        if(sum.current_size >= sum.upper_bound){
+            int temp = sum.upper_bound - sum.current_size;
+            sum.upper_bound += (temp*2);
+        }
+
+        while(sum.max_size <= sum.current_size)
+            sum.max_size += sum.constant;
+
+        sum.data = new int[sum.max_size];
+        
+        int idx = 0;
+        for(int i=0; i<this->current_size; i++){
+            sum.data[idx] = this->data[i];
+            idx++;
+        }
+        for(int i=0; i<stack2.current_size; i++){
+            sum.data[idx] = stack2.data[i];
+            idx++;
+        }
+
+        return sum;
     }
 
     void growing_stack::push(const int &item){
@@ -202,6 +242,10 @@ int main()
     cout<<"G0_____________";
     G0.display();
     G0.print_stack();
+
+    growing_stack G_Sum = G1 + G2;
+    G_Sum.display();
+    G_Sum.print_stack();
     
     return 0;
 }   
